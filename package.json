@@ -1,0 +1,19 @@
+{
+  "name": "votecampv1",
+  "version": "1.0.0",
+  "description": "VoteCamp v1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "vote-camp-site"
+  },
+  "author": "yalcinos",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.5"
+  }
+}
