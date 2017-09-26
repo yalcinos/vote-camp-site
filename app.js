@@ -22,6 +22,12 @@ app.get("/campgrounds",function(req,res){
 
 		res.render("campgrounds",{campingsite:campgrounds});
 });
+app.post("/campgrounds",function(req,res){
+	//get data form and add array.
+	//redirect campground.
+	res.send("you hit post route");
+});
+
 app.listen(process.env.PORT, process.env.IP,function(){
 	console.log("Server has started.");
 });
