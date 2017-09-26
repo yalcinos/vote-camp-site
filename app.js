@@ -2,9 +2,9 @@ var express=require("express");
 var app=express();
 app.set("view engine","ejs");
 
-app.get("/hi",function(req,res){
-	res.send("saddas");
+app.get("/",function(req,res){
+	res.render("mainpage");
 });
-app.listen(3000,function(){
-	console.log("Hi");
+app.listen(process.env.PORT, process.env.IP,function(){
+	console.log("Server has started.");
 });
