@@ -40,7 +40,9 @@ app.get("/campgrounds",function(req,res){
             console.log("Error is:"+err);
         }else{
             console.log("DATA FETCH SUCCESSFULLY!");
-           	res.render("campgrounds",{campingsite:place});
+            //place is collection name on MongoDB
+            //campsite is a parametre to pass data to ejs
+           	res.render("index",{campingsite:place});
         }
     });
 });
@@ -66,7 +68,14 @@ app.get("/campgrounds/new",function(req, res) {
 });
 //Show more info about campground.
 app.get("/campgrounds/:id",function(req, res) {
-    res.render("show");
+   
+    Places.findById(req.params.id,function(err,foundsPlaces){
+       if(err){
+           console.log(err);
+       }else{
+            res.render("show",{campingsite:foundsPlaces});
+       } 
+    });
 });
 
 app.listen(process.env.PORT, process.env.IP,function(){
