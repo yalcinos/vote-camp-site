@@ -53,7 +53,8 @@ app.post("/campgrounds",function(req,res){
 	//redirect campground.
 	var name=req.body.name;
 	var img=req.body.img;
-	var newPlaceObj={name:name,img:img};
+	var desc=req.body.description;
+	var newPlaceObj={name:name,img:img,description:desc};
 	Places.create(newPlaceObj,function(err,newlyCreatedPlaces){
 	    if(err){
 	        console.log(err);
