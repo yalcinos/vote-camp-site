@@ -9,14 +9,16 @@ app.set("view engine","ejs");
 
 var placesSchema=new mongoose.Schema({
    name:String,
-   img:String
+   img:String,
+   description:String
 });
 var Places=mongoose.model("Places",placesSchema);
 
 // Places.create(
 //     {
 //         name: "Granite Hill",
-//         img: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg"
+//         img: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg",
+//         description: "The huge campgrounds in Toronto!"
         
 //     },function(err,place){
 //     if(err){
@@ -31,6 +33,7 @@ app.get("/",function(req,res){
 	res.render("mainpage");
 });
 
+//INDEX-Show campgrounds
 app.get("/campgrounds",function(req,res){
     Places.find({},function(err,place){
         if(err){
@@ -42,10 +45,7 @@ app.get("/campgrounds",function(req,res){
     });
 });
 
-app.get("/campgrounds/new",function(req, res) {
-    res.render("new.ejs");
-});
-
+//CREATE-add new campp to DB
 app.post("/campgrounds",function(req,res){
 	//get data form and add array.
 	//redirect campground.
@@ -59,6 +59,14 @@ app.post("/campgrounds",function(req,res){
 	        res.redirect("/campgrounds");
 	    }
 	});
+});
+//NEW- show form to create new campgrounds
+app.get("/campgrounds/new",function(req, res) {
+    res.render("new.ejs");
+});
+//Show more info about campground.
+app.get("/campgrounds/:id",function(req, res) {
+    res.render("show");
 });
 
 app.listen(process.env.PORT, process.env.IP,function(){
