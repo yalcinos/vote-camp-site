@@ -1,18 +1,14 @@
 var express=require("express"),
     app=express(),
     bodyParser=require("body-parser"),
-    mongoose=require("mongoose");
+    mongoose=require("mongoose"),
+    Places=require("./models/places.js");
 
 mongoose.connect("mongodb://localhost/vote_places",{useMongoClient: true});    
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 
-var placesSchema=new mongoose.Schema({
-   name:String,
-   img:String,
-   description:String
-});
-var Places=mongoose.model("Places",placesSchema);
+
 
 // Places.create(
 //     {
