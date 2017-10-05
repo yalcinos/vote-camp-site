@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8ed98867-8293-43c7-89db-58c52bcce79f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seed.js" afterPath="$PROJECT_DIR$/seed.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +33,7 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-355">
+            <state relative-caret-position="-31">
               <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
               <folding />
             </state>
@@ -43,11 +43,9 @@
       <file leaf-file-name="seed.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/seed.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-              <folding>
-                <marker date="1507236833054" expanded="true" signature="1073:1558" ph="..." />
-              </folding>
+            <state relative-caret-position="-265">
+              <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,8 +68,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/seed.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/seed.js" />
       </list>
     </option>
   </component>
@@ -178,12 +176,12 @@
       <updated>1507207203623</updated>
       <workItem from="1507207206032" duration="1543000" />
       <workItem from="1507209909470" duration="31000" />
-      <workItem from="1507209974234" duration="5176000" />
+      <workItem from="1507209974234" duration="5758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6750000" />
+    <option name="totallyTimeSpent" value="7332000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -224,7 +222,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -278,7 +278,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-355">
+        <state relative-caret-position="-31">
           <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
           <folding />
         </state>
@@ -286,11 +286,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/seed.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-          <folding>
-            <marker date="1507236833054" expanded="true" signature="1073:1558" ph="..." />
-          </folding>
+        <state relative-caret-position="-265">
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>

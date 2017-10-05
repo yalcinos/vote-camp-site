@@ -5,12 +5,12 @@ function seedDB() {
     var data=[
         {
             title:"CampGrounds 1",
-            image:"http://www.photosforclass.com/download/3753652204",
+            img:"http://www.photosforclass.com/download/3753652204",
             description:"blah blah blah"
         },
         {
             title:"CampGrounds 2",
-            image:"https://farm3.staticflickr.com/2535/3823437635_c712decf64.jpg",
+            img:"https://farm3.staticflickr.com/2535/3823437635_c712decf64.jpg",
             description:"blah blah blah"
         },
         {
@@ -47,4 +47,4 @@ function seedDB() {
         })
     });
 }
-module.exports=seedDB();
+module.exports=seedDB;
