@@ -3,7 +3,9 @@ var express=require("express"),
     bodyParser=require("body-parser"),
     mongoose=require("mongoose"),
     Places=require("./models/places.js");
+    seedDB=require("./seed.js");
 
+seedDB();
 mongoose.connect("mongodb://localhost/vote_places",{useMongoClient: true});    
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
