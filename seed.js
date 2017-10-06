@@ -4,18 +4,18 @@ var Comments=require("./models/comments.js");
 function seedDB() {
     var data=[
         {
-            title:"CampGrounds 1",
-            img:"http://www.photosforclass.com/download/3753652204",
+            title:"Historical Place 1",
+            img:"https://farm2.staticflickr.com/1616/25936335344_5ba498ba15.jpg",
             description:"blah blah blah"
         },
         {
-            title:"CampGrounds 2",
-            img:"https://farm3.staticflickr.com/2535/3823437635_c712decf64.jpg",
+            title:"Historical Place 2",
+            img:"https://farm4.staticflickr.com/3172/2355138562_faaf7222dc.jpg",
             description:"blah blah blah"
         },
         {
-            title:"CampGrounds 3",
-            img:"https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg",
+            title:"Historical Place 3",
+            img:"https://farm3.staticflickr.com/2041/32459432790_03606aa61a.jpg",
             description:"blah blah blah"
         }
     ];
