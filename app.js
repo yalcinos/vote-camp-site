@@ -3,6 +3,7 @@ var express=require("express"),
     bodyParser=require("body-parser"),
     mongoose=require("mongoose"),
     Places=require("./models/places.js");
+    Comments=require("./models/comments");
     seedDB=require("./seed.js");
 
 seedDB();
@@ -52,10 +53,11 @@ app.get("/campgrounds/new",function(req, res) {
 //Show more info about campground.
 app.get("/campgrounds/:id",function(req, res) {
    
-    Places.findById(req.params.id,function(err,foundsPlaces){
+    Places.findById(req.params.id).populate("comments").exec(function(err,foundsPlaces){
        if(err){
            console.log(err);
        }else{
+           console.log(foundsPlaces)
             res.render("show",{campingsite:foundsPlaces});
        } 
     });
