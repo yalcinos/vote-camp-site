@@ -25,7 +25,7 @@ app.get("/campgrounds",function(req,res){
             console.log("DATA FETCH SUCCESSFULLY!");
             //place is collection name on MongoDB
             //campsite is a parametre to pass data to ejs
-           	res.render("index",{campingsite:place});
+           	res.render("places/index",{campingsite:place});
         }
     });
 });
@@ -34,10 +34,10 @@ app.get("/campgrounds",function(req,res){
 app.post("/campgrounds",function(req,res){
 	//get data form and add array.
 	//redirect campground.
-	var name=req.body.name;
+	var title=req.body.title;
 	var img=req.body.img;
 	var desc=req.body.description;
-	var newPlaceObj={name:name,img:img,description:desc};
+	var newPlaceObj={title:title,img:img,description:desc};
 	Places.create(newPlaceObj,function(err,newlyCreatedPlaces){
 	    if(err){
 	        console.log(err);
@@ -48,7 +48,7 @@ app.post("/campgrounds",function(req,res){
 });
 //NEW- show form to create new campgrounds
 app.get("/campgrounds/new",function(req, res) {
-    res.render("new.ejs");
+    res.render("places/new.ejs");
 });
 //Show more info about campground.
 app.get("/campgrounds/:id",function(req, res) {
@@ -58,11 +58,21 @@ app.get("/campgrounds/:id",function(req, res) {
            console.log(err);
        }else{
            console.log(foundsPlaces);
-            res.render("show",{campingsite:foundsPlaces});
+            res.render("places/show",{campingsite:foundsPlaces});
        } 
     });
 });
+//COMMENTS ROUTE
+app.get("/campgrounds/:id/comments/new",function (req,res) {
+    Places.findById(req.params.id,function (err,comment) {
+       if(err){
+           console.log(err);
+       } else{
+           res.render("comments/new",{places:comment});
+       }
+    });
 
+});
 app.listen(3001,function(){
 	console.log("Server has started.");
 });

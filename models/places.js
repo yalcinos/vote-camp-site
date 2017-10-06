@@ -1,6 +1,6 @@
 var mongoose=require("mongoose");   
 var placesSchema=new mongoose.Schema({
-   name:String,
+   title:String,
    img:String,
    description:String,
    comments:[

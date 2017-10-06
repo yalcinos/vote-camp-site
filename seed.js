@@ -15,7 +15,7 @@ function seedDB() {
         },
         {
             title:"CampGrounds 3",
-            image:"http://www.photosforclass.com/download/7930235502",
+            img:"https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg",
             description:"blah blah blah"
         }
     ];

@@ -1,7 +1,7 @@
-<%include partials/header%>
+<%include ../partials/header%>
 <h1>Show template</h1>
 
-<p><%=campingsite.name%></p>
+<p><%=campingsite.title%></p>
 <p><%=campingsite.description%></p>
 
 <% campingsite.comments.forEach(function (comment){%>
@@ -10,4 +10,4 @@
         <strong><%=comment.author%></strong> <strong>- <%=comment.text%></strong>
     </p>
 <%})%>
-<%include partials/footer%>
+<%include ../partials/footer%>
