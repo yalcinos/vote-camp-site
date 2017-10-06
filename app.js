@@ -11,22 +11,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 
 
-
-// Places.create(
-//     {
-//         name: "Granite Hill",
-//         img: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg",
-//         description: "The huge campgrounds in Toronto!"
-        
-//     },function(err,place){
-//     if(err){
-//         console.log("FAILED!");
-//     }else{
-//         console.log("Created Successful!");
-//         console.log(place);
-//     }
-// });
-	
 app.get("/",function(req,res){
 	res.render("mainpage");
 });
