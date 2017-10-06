@@ -3,7 +3,7 @@ var express=require("express"),
     bodyParser=require("body-parser"),
     mongoose=require("mongoose"),
     Places=require("./models/places.js");
-    Comments=require("./models/comments");
+    Comments=require("./models/comments.js");
     seedDB=require("./seed.js");
 
 seedDB();
@@ -57,7 +57,7 @@ app.get("/campgrounds/:id",function(req, res) {
        if(err){
            console.log(err);
        }else{
-           console.log(foundsPlaces)
+           console.log(foundsPlaces);
             res.render("show",{campingsite:foundsPlaces});
        } 
     });

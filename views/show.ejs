@@ -3,4 +3,11 @@
 
 <p><%=campingsite.name%></p>
 <p><%=campingsite.description%></p>
+
+<% campingsite.comments.forEach(function (comment){%>
+
+    <p>
+        <strong><%=comment.author%></strong> <strong>- <%=comment.text%></strong>
+    </p>
+<%})%>
 <%include partials/footer%>
