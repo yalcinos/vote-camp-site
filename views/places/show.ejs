@@ -3,7 +3,9 @@
 
 <p><%=campingsite.title%></p>
 <p><%=campingsite.description%></p>
-
+<p>
+    <a class="btn btn-info" href="/campgrounds/<%=campingsite._id%>/comments/new">Add New Comment</a>
+</p>
 <% campingsite.comments.forEach(function (comment){%>
 
     <p>
