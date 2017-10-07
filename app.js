@@ -73,6 +73,26 @@ app.get("/campgrounds/:id/comments/new",function (req,res) {
     });
 
 });
+//ADD NEW COMMENT TO DB
+app.post("/campgrounds/:id/comments",function (req,res) {
+    Places.findById(req.params.id,function (err,place) {
+        if(err){
+            console.log(err);
+            res.redirect("/campgrounds");
+        }else{
+            Comments.create(req.body.comment,function (err,comment) {
+                if(err){
+                    console.log(err);
+                }else{
+                    place.comments.push(comment);
+                    place.save();
+                    res.redirect("/campgrounds/"+place._id);
+                }
+            })
+        }
+    })
+});
+
 app.listen(3001,function(){
 	console.log("Server has started.");
 });
