@@ -9,17 +9,33 @@ var express=require("express"),
     User=require("./models/users.js"),
     seedDB=require("./seed.js")
 
-seedDB();
+
 mongoose.connect("mongodb://localhost/vote_places",{useMongoClient: true});    
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 // dirname is the whole directory path Ex:/home/yalcin/find-awesome-places
 app.use(express.static(__dirname+"/public"));
+seedDB();
+
+//------------------PASSPORT CONFIGURATION-------------------------------
+app.use(require("express-session")({
+    secret:"voteplace",
+    resave:false,
+    saveUninitialized:false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+//authentication method is defined by passportlocalmongoose
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+//--------------END PASSPORT CONFIGURATION------------------------
+
 app.get("/",function(req,res){
 	res.render("mainpage");
 });
 
-//INDEX-Show campgrounds
+//-----------------INDEX-Show campgrounds---------------------
 app.get("/campgrounds",function(req,res){
     Places.find({},function(err,place){
         if(err){
@@ -33,7 +49,7 @@ app.get("/campgrounds",function(req,res){
     });
 });
 
-//CREATE-add new campp to DB
+//--------------CREATE-add new campp to DB---------------------
 app.post("/campgrounds",function(req,res){
 	//get data form and add array.
 	//redirect campground.
@@ -49,11 +65,13 @@ app.post("/campgrounds",function(req,res){
 	    }
 	});
 });
-//NEW- show form to create new campgrounds
+
+//--------------NEW- show form to create new campgrounds--------------------
 app.get("/campgrounds/new",function(req, res) {
     res.render("places/new.ejs");
 });
-//Show more info about campground.
+
+//--------Show more info about campground.-------------------------
 app.get("/campgrounds/:id",function(req, res) {
    
     Places.findById(req.params.id).populate("comments").exec(function(err,foundsPlaces){
@@ -65,7 +83,8 @@ app.get("/campgrounds/:id",function(req, res) {
        } 
     });
 });
-//COMMENTS ROUTE
+
+//-----------------COMMENTS ROUTE--------------------
 app.get("/campgrounds/:id/comments/new",function (req,res) {
     Places.findById(req.params.id,function (err,comment) {
        if(err){
@@ -76,7 +95,8 @@ app.get("/campgrounds/:id/comments/new",function (req,res) {
     });
 
 });
-//ADD NEW COMMENT TO DB
+
+//---------------ADD NEW COMMENT TO DB--------------------
 app.post("/campgrounds/:id/comments",function (req,res) {
     Places.findById(req.params.id,function (err,place) {
         if(err){
@@ -96,6 +116,13 @@ app.post("/campgrounds/:id/comments",function (req,res) {
     })
 });
 
+//-----------AUTHENTICATION ROUTE------------
+app.get("/register",function (req,res) {
+    
+});
+app.get("/login",function (req,res) {
+
+});
 app.listen(3001,function(){
 	console.log("Server has started.");
 });
