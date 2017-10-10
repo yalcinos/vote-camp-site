@@ -118,10 +118,23 @@ app.post("/campgrounds/:id/comments",function (req,res) {
 
 //-----------AUTHENTICATION ROUTE------------
 app.get("/register",function (req,res) {
-    
+    res.render("register");
+});
+app.post("/register",function (req,res) {
+   var username=req.body.username;
+   var password=req.body.password;
+   User.register({username:username},password,function (err) {
+       if(err){
+           console.log(err);
+           return res.render("register");
+       }
+       passport.authenticate("local")(req,res,function () {
+           res.redirect("/campgrounds");
+       })
+   })
 });
 app.get("/login",function (req,res) {
-
+    res.render("login");
 });
 app.listen(3001,function(){
 	console.log("Server has started.");
