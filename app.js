@@ -2,9 +2,12 @@ var express=require("express"),
     app=express(),
     bodyParser=require("body-parser"),
     mongoose=require("mongoose"),
-    Places=require("./models/places.js");
-    Comments=require("./models/comments.js");
-    seedDB=require("./seed.js");
+    passport=require("passport"),
+    LocalStrategy=require("passport-local"),
+    Places=require("./models/places.js"),
+    Comments=require("./models/comments.js"),
+    User=require("./models/users.js"),
+    seedDB=require("./seed.js")
 
 seedDB();
 mongoose.connect("mongodb://localhost/vote_places",{useMongoClient: true});    
