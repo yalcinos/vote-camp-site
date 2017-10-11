@@ -31,6 +31,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 //--------------END PASSPORT CONFIGURATION------------------------
 
+//MIDDLEWARE-- RUNS ALL ROUTES
+app.use(function (req,res,next) {
+    res.locals.currentuser=req.user;
+    next();
+});
+
 app.get("/",function(req,res){
 	res.render("mainpage");
 });
@@ -142,6 +148,7 @@ app.post("/login",passport.authenticate("local",{
     successRedirect:"/campgrounds",
     failureRedirect:"/login"
 }),function(req,res) {
+
 });
 //----------LOGOUT ROUTE-------------
 app.get("/logout",function (req,res) {
