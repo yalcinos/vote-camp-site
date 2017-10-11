@@ -85,7 +85,7 @@ app.get("/campgrounds/:id",function(req, res) {
 });
 
 //-----------------COMMENTS ROUTE--------------------
-app.get("/campgrounds/:id/comments/new",function (req,res) {
+app.get("/campgrounds/:id/comments/new",isLoggedIn,function (req,res) {
     Places.findById(req.params.id,function (err,comment) {
        if(err){
            console.log(err);
@@ -97,7 +97,7 @@ app.get("/campgrounds/:id/comments/new",function (req,res) {
 });
 
 //---------------ADD NEW COMMENT TO DB--------------------
-app.post("/campgrounds/:id/comments",function (req,res) {
+app.post("/campgrounds/:id/comments",isLoggedIn,function (req,res) {
     Places.findById(req.params.id,function (err,place) {
         if(err){
             console.log(err);
@@ -143,7 +143,18 @@ app.post("/login",passport.authenticate("local",{
     failureRedirect:"/login"
 }),function(req,res) {
 });
-
+//----------LOGOUT ROUTE-------------
+app.get("/logout",function (req,res) {
+   req.logout();
+   res.redirect("/campgrounds");
+});
+function isLoggedIn(req,res,next) {
+    if(req.isAuthenticated()){
+        return next();
+    }else{
+        res.redirect("/login");
+    }
+}
 app.listen(3001,function(){
 	console.log("Server has started.");
 });
