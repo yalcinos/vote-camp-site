@@ -116,7 +116,7 @@ app.post("/campgrounds/:id/comments",function (req,res) {
     })
 });
 
-//-----------AUTHENTICATION ROUTE------------
+//-----------AUTHENTICATION REGISTER ROUTE------------
 app.get("/register",function (req,res) {
     res.render("register");
 });
@@ -133,9 +133,17 @@ app.post("/register",function (req,res) {
        })
    })
 });
+//------------AUTHENTICATION LOGIN ROUTE------------
 app.get("/login",function (req,res) {
     res.render("login");
 });
+//MIDDLEWARE
+app.post("/login",passport.authenticate("local",{
+    successRedirect:"/campgrounds",
+    failureRedirect:"/login"
+}),function(req,res) {
+});
+
 app.listen(3001,function(){
 	console.log("Server has started.");
 });
