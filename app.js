@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 // dirname is the whole directory path Ex:/home/yalcin/find-awesome-places
 app.use(express.static(__dirname+"/public"));
-seedDB();
+//seedDB();
 
 //------------------PASSPORT MODULE CONFIGURATION-------------------------------
 app.use(require("express-session")({
